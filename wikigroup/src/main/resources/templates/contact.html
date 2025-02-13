@@ -1,40 +1,81 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto</title>
-  <link rel="stylesheet" href="/Styles/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="/Styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          max-width: 400px;
+          margin: 0 auto;
+          padding: 20px;
+          background: #f9f9f9;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form label,
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+          width: 100%;
+          margin-bottom: 10px;
+          color: #333;
+        }
+        .contact-form button {
+          background-color: #007bff;
+          color: white;
+          border: none;
+          padding: 10px;
+          cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <!-- Barra de navegación -->
-  <nav class="sidebar">
+<!-- Barra de navegación -->
+<nav class="sidebar">
     <div class="sidebar-header">
-      <img src="/Assets/arriendo.png" alt="logo" class="logo" width="150px">
-      
+        <img src="/Assets/arriendo.png" alt="logo" class="logo" width="150px">
     </div>
     <ul class="sidebar-menu">
-      <li><a th:href="@{/home}"><i class="fas fa-home"></i> Descripción del proyecto</a></li>
-      <li><a th:href="@{/requirements}"><i class="fas fa-angle-right"></i> Requerimientos</a></li>
-      <li><a th:href="@{/architecture}"><i class="fas fa-angle-right"></i> Arquitectura del proyecto</a></li>
-      <li><a th:href="@{/development}"><i class="fas fa-angle-right"></i> Desarrollo</a></li>
-      <li><a th:href="@{/tests}"><i class="fas fa-angle-right"></i> Pruebas</a></li>
-      <li><a th:href="@{/deploy}"><i class="fas fa-angle-right"></i> Despliegue</a></li>
-      <li><a th:href="@{/contact}"id="actualSection"><i class="fas fa-envelope"></i> Contactenos</a></li>
-      <li><a th:href="@{/about}"><i class="far fa-address-card"></i> Sobre nosotros</a></li>
+        <li><a th:href="@{/home}"><i class="fas fa-home"></i> Descripción del proyecto</a></li>
+        <li><a th:href="@{/requirements}"><i class="fas fa-angle-right"></i> Requerimientos</a></li>
+        <li><a th:href="@{/architecture}"><i class="fas fa-angle-right"></i> Arquitectura del proyecto</a></li>
+        <li><a th:href="@{/development}"><i class="fas fa-angle-right"></i> Desarrollo</a></li>
+        <li><a th:href="@{/tests}"><i class="fas fa-angle-right"></i> Pruebas</a></li>
+        <li><a th:href="@{/deploy}"><i class="fas fa-angle-right"></i> Despliegue</a></li>
+        <li><a th:href="@{/contact}" id="actualSection"><i class="fas fa-envelope"></i> Contáctenos</a></li>
+        <li><a th:href="@{/about}"><i class="far fa-address-card"></i> Sobre nosotros</a></li>
     </ul>
-  </nav>
+</nav>
 
-  <!-- Contenido principal -->
-  <main class="content">
+<!-- Contenido principal -->
+<main class="content">
     <button class="toggle-btn" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
-      </button>
-    <h1>Contactenos</h1>
-    <p>Este es un ejemplo de una barra de navegación responsive.</p>
-  </main>
+    </button>
+    <h1 style="text-align: center; color: #333;">Contáctenos</h1>
+    <p style="text-align: center; color: #333;">Por favor, complete el siguiente formulario y nos pondremos en contacto con usted lo antes posible.</p>
 
-  <script src="/Scripts/navbarscript.js"></script>
+    <form action="/send-message" method="post" class="contact-form">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+</main>
+
+<script src="/Scripts/navbarscript.js"></script>
 </body>
 </html>
