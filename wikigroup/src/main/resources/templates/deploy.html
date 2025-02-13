@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Despliegue</title>
+  <link rel="stylesheet" href="/Styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <img src="/Assets/arriendo.png" alt="logo" class="logo" width="150px">
+      
+    </div>
+    <ul class="sidebar-menu">
+      <li><a th:href="@{/home}"><i class="fas fa-home"></i> Descripción del proyecto</a></li>
+      <li><a th:href="@{/requirements}"><i class="fas fa-angle-right"></i> Requerimientos</a></li>
+      <li><a th:href="@{/architecture}"><i class="fas fa-angle-right"></i> Arquitectura del proyecto</a></li>
+      <li><a th:href="@{/development}"><i class="fas fa-angle-right"></i> Desarrollo</a></li>
+      <li><a th:href="@{/tests}"><i class="fas fa-angle-right"></i> Pruebas</a></li>
+      <li><a th:href="@{/deploy}" id="actualSection"><i class="fas fa-angle-right"></i> Despliegue</a></li>
+      <li><a th:href="@{/contact}"><i class="fas fa-envelope"></i> Contactenos</a></li>
+      <li><a th:href="@{/about}"><i class="far fa-address-card"></i> Sobre nosotros</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="content">
+    <button class="toggle-btn" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    <h1>Despliegue</h1>
+    <p>Este es un ejemplo de una barra de navegación responsive.</p>
+  </main>
+
+  <script src="/Scripts/navbarscript.js"></script>
+</body>
+</html>
