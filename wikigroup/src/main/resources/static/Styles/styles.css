@@ -2,11 +2,11 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  display: flex;
+  display: flex; /* Asegura que sidebar y contenido se comporten bien */
+  min-height: 100vh;
   background-color: rgb(255, 255, 255);
 }
 
-/* Barra de navegación */
 .sidebar {
   width: 200px;
   height: 100vh;
@@ -15,6 +15,9 @@ body {
   transition: width 0.3s ease;
   border-right: #8f8f8f solid 1px;
   overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
   scrollbar-color: #8f8f8f #07131B;
 }
 
@@ -40,7 +43,6 @@ body {
   cursor: pointer;
 }
 
-
 .sidebar-menu {
   list-style: none;
   padding: 0;
@@ -49,7 +51,6 @@ body {
 
 .sidebar-menu li {
   padding: 15px 20px;
-
 }
 
 .sidebar-menu li a {
@@ -65,18 +66,53 @@ body {
 
 /* Contenido principal */
 .content {
-  flex: 1;
+  flex: 1; /* Ocupará todo el ancho disponible */
   padding: 20px;
   background-image: url("../Assets/fondo.png");
-  background-size: 105% 105%; 
-  background-position: 20px -30px;
-  color:aliceblue;
+  background-size: cover;
+  background-position: center;
+  color: aliceblue;
   text-align: center;
-  padding-left: 10%;
-  padding-right: 10%;
-  
+  min-height: 100vh; /* Asegura que el contenido tenga altura suficiente */
+  margin-left: 200px; /* Solo cuando la sidebar está visible */
+  display: flex;
+  flex-direction: column;
 }
-#actualSection{
+
+.content_about_us {
+  flex: 1; /* Ocupará todo el ancho disponible */
+  padding: 20px;
+  background-image: url("../Assets/fondo.png");
+  background-size: cover;
+  background-position: center;
+  color: aliceblue;
+  text-align: center;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  min-height: 100vh; /* Asegura que el contenido tenga altura suficiente */
+  margin-left: 200px; /* Solo cuando la sidebar está visible */
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-between; /* Ajusta la distribución entre imágenes */
+  gap: 30px
+}
+.image-container img {
+  width: 180px; /* Tamaño uniforme para todas las imágenes */
+  height: 180px;
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  border-radius: 10px; /* Opcional: bordes redondeados */
+}
+
+.image-item p {
+  margin-top: 5px; /* Espacio entre la imagen y la información */
+}
+
+/* Resaltar sección actual */
+#actualSection {
   color: rgb(255, 252, 58);
   font-weight: bold;
   text-decoration: underline;
@@ -85,8 +121,9 @@ body {
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .sidebar {
-    width: 0px;
+    width: 0;
   }
+
   .toggle-btn {
     position: fixed;
     top: 20px;
@@ -98,14 +135,11 @@ body {
     cursor: pointer;
   }
 
-  .sidebar-menu li a span {
-    display: none;
-  }
-
-  .sidebar-menu li a i {
-    margin-right: 0;
-  }
   .sidebar.active {
     width: 200px;
+  }
+
+  .content {
+    margin-left: 0; /* Cuando la sidebar está oculta */
   }
 }
