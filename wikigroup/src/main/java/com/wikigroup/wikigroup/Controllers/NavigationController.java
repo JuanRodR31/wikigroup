@@ -36,11 +36,6 @@ public class NavigationController {
         return "deploy"; // Redirige a deploy.html
     }
 
-    @GetMapping("/contact")
-    public String contact() {
-        return "contact"; // Redirige a contact.html
-    }
-
     @GetMapping("/about")
     public String about() {
         return "aboutUs"; // Redirige a aboutUs.html
