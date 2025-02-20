@@ -74,8 +74,53 @@
 
         <button type="submit">Enviar</button>
     </form>
-</main>
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
+    const nombre = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mensaje = document.getElementById('message').value.trim();
+
+    if (typeof nombre !== 'string' || nombre === '') {
+        alert('Por favor, ingrese un nombre válido.');
+        return;
+    }
+
+    if (typeof email !== 'string' || email === '') {
+        alert('Por favor, ingrese un correo electrónico válido.');
+        return;
+    }
+
+    if (typeof mensaje !== 'string' || mensaje === '') {
+        alert('Por favor, ingrese un mensaje válido.');
+        return;
+    }
+
+    const persona = {
+        nombre: nombre,
+        email: email,
+        mensaje: mensaje
+    };
+
+    console.log('Persona:', persona);
+
+    fetch('http://localhost:8080/api/create', options)
+      .then(data => {
+          if (!data.ok) {
+            throw Error(data.status);
+           }
+           return data.json();
+          }).then(datos => {
+          console.log(datos);
+          }).catch(e => {
+          console.log(e);
+          });
+    
+       return false;
+      });
+  </script>
+</main>
 <script src="/Scripts/navbarscript.js"></script>
 </body>
 </html>
