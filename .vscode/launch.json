@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-WikigroupApplication<wikigroup>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.wikigroup.wikigroup.WikigroupApplication",
+            "projectName": "wikigroup",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
